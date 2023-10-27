@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表單 | 玩具時光機</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/timeM.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="fullscreen-image"
+        style="background-image: url(https://wallpaper.dog/large/20503192.jpg)"
+      >
+        <div class="container">
+          <div class="info center">
+            <h1 class="center">{{ title }}</h1>
+
+            <div class="formInput mt-3 mb-3 lh-base">
+              {{ name }}，{{sex}}性，年齡為 {{ age }}，<br />
+              {{ favor.length? '喜歡': ''}} {{ favor.join('、')}}，是 {{ job ?
+              '就職中': '待業中'}} 。
+            </div>
+            <div class="formMenu lh-lg">
+              <table>
+                <tr>
+                  <td class="formT">姓名：</td>
+                  <td>
+                    <input v-model="name" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="formT">性別：</td>
+                  <td>
+                    <input type="radio" value="女" v-model="sex" />女
+                    <input type="radio" value="男" v-model="sex" />男
+                  </td>
+                </tr>
+                <tr>
+                  <td class="formT">年齡：</td>
+                  <td>
+                    <select v-model="age">
+                      <option>20 歲以下</option>
+                      <option selected>20~30 歲間</option>
+                      <option>30~40 歲間</option>
+                      <option>40 歲以上</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="formT">興趣：</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      value="看電影"
+                      v-model="favor"
+                    />看電影
+                    <input type="checkbox" value="打掃" v-model="favor" />打掃
+                    <input type="checkbox" value="旅遊" v-model="favor" />旅遊
+                  </td>
+                </tr>
+                <tr>
+                  <td class="formT">工作：</td>
+                  <td><input type="checkbox" v-model="job" />就職中</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div id="copyrights" class="text-center mt-3">
+          <p>{{ year }} {{ company }} 建議瀏覽器 chrome / IE 11.0 以上</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/form.js"></script>
+  </body>
+</html>
